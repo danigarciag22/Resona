@@ -1,15 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { createServiceClient } from "../supabase/server";
+import { getDashboardStats } from "../stats";
 
-describe("supabase service client", () => {
-  it("connects and reads the seeded org", async () => {
-    const db = createServiceClient();
-    const { data, error } = await db
-      .from("organizations")
-      .select("name")
-      .eq("id", "00000000-0000-0000-0000-0000000000b0")
-      .single();
-    expect(error).toBeNull();
-    expect(data?.name).toBe("Acme Demo");
+describe("getDashboardStats", () => {
+  it("returns seeded counts", async () => {
+    const stats = await getDashboardStats();
+    expect(stats.agents).toBe(1); // seed: Acme Scheduler
+    expect(stats.phoneNumbers).toBe(1); // seed: +15555550100
+    expect(stats.calls).toBe(0); // seed has no calls
+    expect(stats.completedCalls).toBe(0);
   });
 });
