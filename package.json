@@ -1,0 +1,16 @@
+{
+  "name": "resona",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:test": "supabase test db",
+    "db:types": "supabase gen types typescript --local > packages/db/types.ts",
+    "db:status": "supabase status"
+  },
+  "devDependencies": {
+    "supabase": "^2"
+  }
+}
