@@ -12,6 +12,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <Link className="rounded px-2 py-1.5 hover:bg-muted" href="/agents">
             Agents
           </Link>
+          <Link className="rounded px-2 py-1.5 hover:bg-muted" href="/calls">
+            Calls
+          </Link>
         </nav>
       </aside>
       <main className="flex-1 p-8">{children}</main>
