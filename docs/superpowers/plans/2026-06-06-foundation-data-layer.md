@@ -825,10 +825,10 @@ values ('dddddddd-dddd-dddd-dddd-dddddddddddd','44444444-4444-4444-4444-44444444
 insert into public.knowledge_bases (id, org_id, name)
 values ('dbdbdbdb-0000-0000-0000-000000000000','dddddddd-dddd-dddd-dddd-dddddddddddd','KB D');
 insert into public.knowledge_documents (id, org_id, kb_id, title, status)
-values ('dddoc000-0000-0000-0000-000000000000','dddddddd-dddd-dddd-dddd-dddddddddddd','dbdbdbdb-0000-0000-0000-000000000000','Doc','ready');
+values ('ddd0c000-0000-0000-0000-000000000000','dddddddd-dddd-dddd-dddd-dddddddddddd','dbdbdbdb-0000-0000-0000-000000000000','Doc','ready');
 insert into public.knowledge_chunks (org_id, document_id, content, embedding)
-values ('dddddddd-dddd-dddd-dddd-dddddddddddd','dddoc000-0000-0000-0000-000000000000','about pricing', pg_temp.unit_vec(1)),
-       ('dddddddd-dddd-dddd-dddd-dddddddddddd','dddoc000-0000-0000-0000-000000000000','about refunds', pg_temp.unit_vec(2));
+values ('dddddddd-dddd-dddd-dddd-dddddddddddd','ddd0c000-0000-0000-0000-000000000000','about pricing', pg_temp.unit_vec(1)),
+       ('dddddddd-dddd-dddd-dddd-dddddddddddd','ddd0c000-0000-0000-0000-000000000000','about refunds', pg_temp.unit_vec(2));
 
 set local role authenticated;
 set local "request.jwt.claims" = '{"sub":"44444444-4444-4444-4444-444444444444"}';
