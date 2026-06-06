@@ -699,7 +699,7 @@ def connect_stream_twiml(ws_url: str) -> str:
 
 Replace `services/voice/resona_voice/app.py` with:
 ```python
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Response
 
 from .config import settings
 from .twiml import connect_stream_twiml
@@ -713,11 +713,11 @@ async def health() -> dict[str, str]:
 
 
 @app.post("/twilio/voice")
-async def twilio_voice(request: Request) -> Response:
-    # Twilio posts CallSid/From/To as form data on an inbound call. We respond
-    # with TwiML that opens a media stream back to our WebSocket (Plan 2b wires
-    # that socket into the Orchestrator).
-    await request.form()
+async def twilio_voice() -> Response:
+    # Twilio POSTs CallSid/From/To (form-encoded) on an inbound call. This slice
+    # ignores the body and always returns TwiML that opens a media stream back to
+    # our WebSocket. Plan 2b parses the form (needs python-multipart) to look up
+    # the dialed number and route to the right agent.
     xml = connect_stream_twiml(settings.media_stream_url)
     return Response(content=xml, media_type="application/xml")
 ```
