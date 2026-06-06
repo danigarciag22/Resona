@@ -6,7 +6,7 @@ describe("getDashboardStats", () => {
     const stats = await getDashboardStats();
     expect(stats.agents).toBe(1); // seed: Acme Scheduler
     expect(stats.phoneNumbers).toBe(1); // seed: +15555550100
-    expect(stats.calls).toBe(0); // seed has no calls
-    expect(stats.completedCalls).toBe(0);
+    expect(stats.calls).toBe(2); // seed now has 2 sample calls
+    expect(stats.completedCalls).toBe(2);
   });
 });
