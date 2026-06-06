@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+**/__pycache__/
+.venv/
+venv/
+*.egg-info/
+.python-version
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+secrets/
+
+# Builds
+.next/
+out/
+dist/
+build/
+
+# Vercel
+.vercel
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+yarn-error.log*
+.turbo
+coverage/
+
+# Editor
+.idea/
+.vscode/
+*.swp
